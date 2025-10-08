@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- This is our Student class bean with setter injection if you are filling
+	the value through property tag it means setter injection used behind the
+	scene-->
+	<bean class="com.springcore.beans.Student" name="student1">
+		<property name="studentId">
+			<value> 101</value>
+		</property>
+		<property name="studentName">
+			<value> Vaibhav</value>
+		</property>
+		<property name="address">
+			<value> Chhatera</value>
+		</property>
+	</bean>
+
+	<!--  Same line conveniant configuration-->
+	<bean class="com.springcore.beans.Student" name="student2"
+		lazy-init="default">
+		<property name="studentId" value="102" />
+		<property name="studentName" value="Vastav" />
+		<property name="address" value="Chhatera" />
+	</bean>
+
+	<!--  Setting values through P schema-->
+	<bean class="com.springcore.beans.Student" name="student3"
+		lazy-init="true" p:studentId="103" p:studentName="Yash"
+		p:address="Chhatera" />
+
+
+	<!-- Employee Bean with Collection Values-->
+	<bean class="com.springcore.collections.Employee" name="emp1">
+		<property name="name" value="Agent" />
+
+		<property name="phones">
+			<list>
+				<value>1</value>
+				<value>2</value>
+				<null></null>
+			</list>
+		</property>
+		<property name="address">
+			<set>
+				<value>11</value>
+				<value>22</value>
+			</set>
+		</property>
+		<property name="course">
+			<map>
+				<entry key="111" value="111">
+				</entry>
+				<entry key="222" value="222">
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>
